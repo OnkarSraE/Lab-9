@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+</head>
+<body>
+
+    <div class="gallery">
+        <ul class="controls">
+            <li class="buttons active" data-filter="all">All</li>
+            <li class="buttons" data-filter="cars">Cars</li>
+            <li class="buttons" data-filter="bikes">Motorbikes</li>
+            <li class="buttons" data-filter="guns">Guns</li>
+            <li class="buttons" data-filter="actors">Famous Actors</li>
+
+        </ul>
+    
+
+    <div class="image-container">
+        <a class="image cars" href="car1.jpg">
+            <img src="car1.jpg" alt="car1">
+        </a>
+        <a class="image cars" href="car2.jpg">
+            <img src="car2.jpg" alt="car2">
+        </a>
+        <a class="image cars" href="car3.webp">
+            <img src="car3.webp" alt="car3">
+        </a>
+        <a class="image cars" href="car4.webp">
+            <img src="car4.webp" alt="car4">
+        </a>
+        <a class="image cars" href="car5.jpg">
+            <img src="car5.jpg" alt="car5">
+        </a>
+        <a class="image cars" href="car6.avif">
+            <img src="car6.avif" alt="car6">
+        </a>
+        <a class="image bikes" href="bike1.jpg">
+            <img src="bike1.jpg" alt="bike1">
+        </a>
+        <a class="image bikes" href="bike2.jpg">
+            <img src="bike2.jpg" alt="bike2">
+        </a>
+        <a class="image bikes" href="bike3.jpg">
+            <img src="bike3.jpg" alt="bike3">
+        </a>
+        <a class="image bikes" href="bike4.jpg">
+            <img src="bike4.jpg" alt="bike4">
+        </a>
+        <a class="image bikes" href="bike5.webp">
+            <img src="bike5.webp" alt="bike5">
+        </a>
+        <a class="image guns" href="gun1.webp">
+            <img src="gun1.webp" alt="gun1">
+        </a>
+        <a class="image guns" href="gun2.webp">
+            <img src="gun2.webp" alt="gun2">
+        </a>
+        <a class="image guns" href="gun3.webp">
+            <img src="gun3.webp" alt="gun3">
+        </a>
+        <a class="image guns" href="gun4.jpg">
+            <img src="gun4.jpg" alt="gun4">
+        </a>
+        <a class="image actors" href="actor1.webp">
+            <img src="actor1.webp" alt="actor1">
+        </a>
+        <a class="image actors" href="actor2.webp">
+            <img src="actor2.webp" alt="actor2">
+        </a>
+        <a class="image actors" href="a3.jpg">
+            <img src="a3.jpg" alt="actor3">
+        </a>
+        <a class="image actors" href="a4.jpg">
+            <img src="a4.jpg" alt="actor4">
+        </a>
+        <a class="image actors" href="a5.jpg">
+            <img src="a5.jpg" alt="actor5">
+        </a>
+        <a class="image actors" href="a6.webp">
+            <img src="a6.webp" alt="actor6">
+        </a>
+    </div>
+    
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+    $('.buttons').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+
+        var filter = $(this).attr('data-filter')
+
+        if(filter == 'all'){
+            $('.image').show(400);
+        }else{
+           
+            $('.image').not('.'+filter).hide(200);
+            $('.image').filter('.'+filter).show(400);
+
+        }
+    });
+
+    $('.gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        gallery:{
+            enabled:true
+        }
+    });
+
+});
+
+</script>
+
+</body>
+</html>
